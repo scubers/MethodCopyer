@@ -22,12 +22,25 @@ typedef NS_ENUM(NSInteger, MCMethodType) {
           fromClass:(Class)fromClass
             toClass:(Class)toClass {
 
-    [self _copyMethods:methods containOrNot:YES fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:YES fromClass:fromClass toClass:toClass];
-    [self _copyMethods:methods containOrNot:YES fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:NO fromClass:fromClass toClass:toClass];
+    [self _copyMethods:methods containOrNot:YES fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:YES fromClass:fromClass toClass:toClass force:NO];
+    [self _copyMethods:methods containOrNot:YES fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:NO fromClass:fromClass toClass:toClass force:NO];
 
-    [self _copyMethods:methods containOrNot:YES fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:YES fromClass:fromClass toClass:toClass];
-    [self _copyMethods:methods containOrNot:YES fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:NO fromClass:fromClass toClass:toClass];
+    [self _copyMethods:methods containOrNot:YES fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:YES fromClass:fromClass toClass:toClass force:NO];
+    [self _copyMethods:methods containOrNot:YES fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:NO fromClass:fromClass toClass:toClass force:NO];
 
+}
+
++ (void)replaceMethods:(NSArray<NSString *> *)methods
+       fromProtocol:(Protocol *)aProtocol
+          fromClass:(Class)fromClass
+            toClass:(Class)toClass {
+
+    [self _copyMethods:methods containOrNot:YES fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:YES fromClass:fromClass toClass:toClass force:YES];
+    [self _copyMethods:methods containOrNot:YES fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:NO fromClass:fromClass toClass:toClass force:YES];
+
+    [self _copyMethods:methods containOrNot:YES fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:YES fromClass:fromClass toClass:toClass force:YES];
+    [self _copyMethods:methods containOrNot:YES fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:NO fromClass:fromClass toClass:toClass force:YES];
+    
 }
 
 + (void)copyMethodsExcept:(NSArray<NSString *> *)methods
@@ -35,21 +48,42 @@ typedef NS_ENUM(NSInteger, MCMethodType) {
                 fromClass:(Class)fromClass
                   toClass:(Class)toClass {
 
-    [self _copyMethods:methods containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:YES fromClass:fromClass toClass:toClass];
-    [self _copyMethods:methods containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:NO fromClass:fromClass toClass:toClass];
+    [self _copyMethods:methods containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:YES fromClass:fromClass toClass:toClass force:NO];
+    [self _copyMethods:methods containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:NO fromClass:fromClass toClass:toClass force:NO];
 
-    [self _copyMethods:methods containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:YES fromClass:fromClass toClass:toClass];
-    [self _copyMethods:methods containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:NO fromClass:fromClass toClass:toClass];
+    [self _copyMethods:methods containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:YES fromClass:fromClass toClass:toClass force:NO];
+    [self _copyMethods:methods containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:NO fromClass:fromClass toClass:toClass force:NO];
+}
+
++ (void)replaceMethodsExcept:(NSArray<NSString *> *)methods
+             fromProtocol:(Protocol *)aProtocol
+                fromClass:(Class)fromClass
+                  toClass:(Class)toClass {
+
+    [self _copyMethods:methods containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:YES fromClass:fromClass toClass:toClass force:YES];
+    [self _copyMethods:methods containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:NO fromClass:fromClass toClass:toClass force:YES];
+
+    [self _copyMethods:methods containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:YES fromClass:fromClass toClass:toClass force:YES];
+    [self _copyMethods:methods containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:NO fromClass:fromClass toClass:toClass force:YES];
 }
 
 
 + (void)copyMethodFromProtocol:(Protocol *)aProtocol fromClass:(Class)fromClass toClass:(Class)toClass {
-    [self _copyMethods:nil containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:YES fromClass:fromClass toClass:toClass];
-    [self _copyMethods:nil containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:NO fromClass:fromClass toClass:toClass];
+    [self _copyMethods:nil containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:YES fromClass:fromClass toClass:toClass force:NO];
+    [self _copyMethods:nil containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:NO fromClass:fromClass toClass:toClass force:NO];
 
-    [self _copyMethods:nil containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:YES fromClass:fromClass toClass:toClass];
-    [self _copyMethods:nil containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:NO fromClass:fromClass toClass:toClass];
+    [self _copyMethods:nil containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:YES fromClass:fromClass toClass:toClass force:NO];
+    [self _copyMethods:nil containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:NO fromClass:fromClass toClass:toClass force:NO];
 }
+
++ (void)replaceMethodFromProtocol:(Protocol *)aProtocol fromClass:(Class)fromClass toClass:(Class)toClass {
+    [self _copyMethods:nil containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:YES fromClass:fromClass toClass:toClass force:YES];
+    [self _copyMethods:nil containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeClassMethod isRequired:NO fromClass:fromClass toClass:toClass force:YES];
+
+    [self _copyMethods:nil containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:YES fromClass:fromClass toClass:toClass force:YES];
+    [self _copyMethods:nil containOrNot:NO fromProtocol:aProtocol methodType:MCMethodTypeInstanceMethod isRequired:NO fromClass:fromClass toClass:toClass force:YES];
+}
+
 
 
 + (void)_copyMethods:(NSArray<NSString *> *)methods
@@ -58,7 +92,9 @@ typedef NS_ENUM(NSInteger, MCMethodType) {
           methodType:(MCMethodType)type
           isRequired:(BOOL)isRequired
            fromClass:(Class)fromClass
-             toClass:(Class)toClass {
+             toClass:(Class)toClass
+               force:(BOOL)force
+{
 
     BOOL isInstanceMethod = type == MCMethodTypeInstanceMethod;
 
@@ -81,6 +117,11 @@ typedef NS_ENUM(NSInteger, MCMethodType) {
 
             if (imp != nil) {
                 BOOL flag = class_addMethod(isInstanceMethod ? toClass : objc_getMetaClass(class_getName(toClass)), desc.name, imp, desc.types);
+                if (!flag) {
+                    if (force) {
+                        flag = class_replaceMethod(isInstanceMethod ? toClass : objc_getMetaClass(class_getName(toClass)), desc.name, imp, desc.types);
+                    }
+                }
                 if (!flag) {
                     NSLog(@"MechodCopyer Warning: copy method: [%@] from [%@] to [%@] fail", NSStringFromSelector(desc.name), NSStringFromClass(fromClass), NSStringFromClass(toClass));
                 }

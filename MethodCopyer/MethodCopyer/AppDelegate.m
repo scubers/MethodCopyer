@@ -80,13 +80,20 @@
 //    [MethodCopyer copyMethodFromProtocol:@protocol(SecondProtocol) methodType:MCMethodTypeClassMethod fromClass:[TestObj class] toClass:[AppDelegate class]];
 //    [MethodCopyer copyMethodFromProtocol:@protocol(SecondProtocol) methodType:MCMethodTypeInstanceMethod fromClass:[TestObj class] toClass:[AppDelegate class]];
 
-    [MethodCopyer copyMethodsExcept:@[
-                                NSStringFromSelector(@selector(firstMethodA)),
-//                                NSStringFromSelector(@selector(firstMethodC)),
-                                ]
-                 fromProtocol:@protocol(FirstProtocol)
-                    fromClass:[TestObj class]
-                      toClass:self.class];
+//    [MethodCopyer copyMethodsExcept:@[
+//                                NSStringFromSelector(@selector(firstMethodA)),
+////                                NSStringFromSelector(@selector(firstMethodC)),
+//                                ]
+//                 fromProtocol:@protocol(FirstProtocol)
+//                    fromClass:[TestObj class]
+//                      toClass:self.class];
+
+    [MethodCopyer replaceMethods:@[
+                                   NSStringFromSelector(@selector(firstMethodB)),
+                                   ]
+                    fromProtocol:@protocol(FirstProtocol)
+                       fromClass:[TestObj class]
+                         toClass:self.class];
 
     [self firstMethodB];
     [self.class firstMethodC];
