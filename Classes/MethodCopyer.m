@@ -78,10 +78,14 @@ typedef NS_ENUM(NSInteger, MCMethodType) {
             }
 
             IMP imp = method_getImplementation(method);
-            BOOL flag = class_addMethod(isInstanceMethod ? toClass : objc_getMetaClass(class_getName(toClass)), desc.name, imp, desc.types);
-            if (!flag) {
-                NSLog(@"MechodCopyer Warning: copy method: [%@] from [%@] to [%@] fail", NSStringFromSelector(desc.name), NSStringFromClass(fromClass), NSStringFromClass(toClass));
+
+            if (imp != nil) {
+                BOOL flag = class_addMethod(isInstanceMethod ? toClass : objc_getMetaClass(class_getName(toClass)), desc.name, imp, desc.types);
+                if (!flag) {
+                    NSLog(@"MechodCopyer Warning: copy method: [%@] from [%@] to [%@] fail", NSStringFromSelector(desc.name), NSStringFromClass(fromClass), NSStringFromClass(toClass));
+                }
             }
+
         }
     }
     free(descs);
