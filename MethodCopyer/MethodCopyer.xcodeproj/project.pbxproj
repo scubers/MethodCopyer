@@ -49,6 +49,7 @@
 		098BA2AA1E0D12510068F7F6 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A838B3751EBC189700594A09 /* MCMethodCopyer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMethodCopyer.h; sourceTree = "<group>"; };
 		A838B3761EBC189700594A09 /* MCMethodCopyer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMethodCopyer.m; sourceTree = "<group>"; };
+		A841A6AA1F30643600CB4009 /* MethodCopyer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MethodCopyer.h; sourceTree = "<group>"; };
 		A898F1EF1EC02960008D9456 /* NSObject+MCTestClassMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MCTestClassMethod.h"; sourceTree = "<group>"; };
 		A898F1F01EC02960008D9456 /* NSObject+MCTestClassMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MCTestClassMethod.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +121,7 @@
 		098BA29F1E0D12510068F7F6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A841A6AA1F30643600CB4009 /* MethodCopyer.h */,
 				A898F1EF1EC02960008D9456 /* NSObject+MCTestClassMethod.h */,
 				A898F1F01EC02960008D9456 /* NSObject+MCTestClassMethod.m */,
 				A838B3751EBC189700594A09 /* MCMethodCopyer.h */,
