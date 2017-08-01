@@ -13,7 +13,7 @@
 		091DF28E1E0BADDC00FA5D18 /* MethodCopyerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 091DF28D1E0BADDC00FA5D18 /* MethodCopyerTests.m */; };
 		098BA2AB1E0D12510068F7F6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 098BA2A41E0D12510068F7F6 /* Localizable.strings */; };
 		098BA2AC1E0D12510068F7F6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 098BA2A61E0D12510068F7F6 /* Media.xcassets */; };
-		A838B3771EBC189700594A09 /* MethodCopyer.m in Sources */ = {isa = PBXBuildFile; fileRef = A838B3761EBC189700594A09 /* MethodCopyer.m */; };
+		A838B3771EBC189700594A09 /* MCMethodCopyer.m in Sources */ = {isa = PBXBuildFile; fileRef = A838B3761EBC189700594A09 /* MCMethodCopyer.m */; };
 		A898F1F11EC02960008D9456 /* NSObject+MCTestClassMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = A898F1F01EC02960008D9456 /* NSObject+MCTestClassMethod.m */; };
 /* End PBXBuildFile section */
 
@@ -47,8 +47,8 @@
 		098BA2A81E0D12510068F7F6 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		098BA2A91E0D12510068F7F6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		098BA2AA1E0D12510068F7F6 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		A838B3751EBC189700594A09 /* MethodCopyer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodCopyer.h; sourceTree = "<group>"; };
-		A838B3761EBC189700594A09 /* MethodCopyer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodCopyer.m; sourceTree = "<group>"; };
+		A838B3751EBC189700594A09 /* MCMethodCopyer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMethodCopyer.h; sourceTree = "<group>"; };
+		A838B3761EBC189700594A09 /* MCMethodCopyer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMethodCopyer.m; sourceTree = "<group>"; };
 		A898F1EF1EC02960008D9456 /* NSObject+MCTestClassMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MCTestClassMethod.h"; sourceTree = "<group>"; };
 		A898F1F01EC02960008D9456 /* NSObject+MCTestClassMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MCTestClassMethod.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,8 +122,8 @@
 			children = (
 				A898F1EF1EC02960008D9456 /* NSObject+MCTestClassMethod.h */,
 				A898F1F01EC02960008D9456 /* NSObject+MCTestClassMethod.m */,
-				A838B3751EBC189700594A09 /* MethodCopyer.h */,
-				A838B3761EBC189700594A09 /* MethodCopyer.m */,
+				A838B3751EBC189700594A09 /* MCMethodCopyer.h */,
+				A838B3761EBC189700594A09 /* MCMethodCopyer.m */,
 				098BA2A31E0D12510068F7F6 /* resource */,
 			);
 			name = Classes;
@@ -257,7 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A838B3771EBC189700594A09 /* MethodCopyer.m in Sources */,
+				A838B3771EBC189700594A09 /* MCMethodCopyer.m in Sources */,
 				A898F1F11EC02960008D9456 /* NSObject+MCTestClassMethod.m in Sources */,
 				091DF2781E0BADDC00FA5D18 /* AppDelegate.m in Sources */,
 				091DF2751E0BADDC00FA5D18 /* main.m in Sources */,

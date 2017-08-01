@@ -10,7 +10,7 @@
 
 
 
-@interface MethodCopyer : NSObject
+@interface MCMethodCopyer : NSObject
 
 + (void)copyMethodFromProtocol:(Protocol *)aProtocol fromClass:(Class)fromClass toClass:(Class)toClass;
 

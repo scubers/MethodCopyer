@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MethodCopyer.h"
+#import "MCMethodCopyer.h"
 
 @protocol FirstProtocol <NSObject>
 
@@ -88,7 +88,7 @@
 //                    fromClass:[TestObj class]
 //                      toClass:self.class];
 
-    [MethodCopyer replaceMethods:@[
+    [MCMethodCopyer replaceMethods:@[
                                    NSStringFromSelector(@selector(firstMethodB)),
                                    ]
                     fromProtocol:@protocol(FirstProtocol)

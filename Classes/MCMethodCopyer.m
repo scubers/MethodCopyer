@@ -6,7 +6,7 @@
 //  Copyright © 2017年 J. All rights reserved.
 //
 
-#import "MethodCopyer.h"
+#import "MCMethodCopyer.h"
 
 #import <objc/runtime.h>
 
@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, MCMethodType) {
     MCMethodTypeInstanceMethod
 };
 
-@implementation MethodCopyer
+@implementation MCMethodCopyer
 
 + (void)copyMethods:(NSArray<NSString *> *)methods
        fromProtocol:(Protocol *)aProtocol
